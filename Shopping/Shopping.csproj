@@ -65,13 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerDemographic.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CreateOrEditEmployeeForm.cs">
       <SubType>Form</SubType>
@@ -79,8 +73,14 @@
     <Compile Include="CreateOrEditEmployeeForm.Designer.cs">
       <DependentUpon>CreateOrEditEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDemographic.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -89,42 +89,42 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Order_Detail.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Shipper.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ShoppıngModel.Context.cs">
+    <Compile Include="ShoppingModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppıngModel.Context.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ShoppıngModel.cs">
+    <Compile Include="ShoppingModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ShoppıngModel.Designer.cs">
+    <Compile Include="ShoppingModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppıngModel.edmx</DependentUpon>
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Territory.cs">
-      <DependentUpon>ShoppıngModel.tt</DependentUpon>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CreateOrEditEmployeeForm.resx">
       <DependentUpon>CreateOrEditEmployeeForm.cs</DependentUpon>
@@ -152,31 +152,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="ShoppıngModel.edmx">
+    <EntityDeploy Include="ShoppingModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShoppıngModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ShoppingModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ShoppıngModel.edmx.diagram">
-      <DependentUpon>ShoppıngModel.edmx</DependentUpon>
+    <None Include="ShoppingModel.edmx.diagram">
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ShoppıngModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ShoppıngModel.Context.cs</LastGenOutput>
-      <DependentUpon>ShoppıngModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="ShoppıngModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShoppıngModel.edmx</DependentUpon>
-      <LastGenOutput>ShoppıngModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="ShoppingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ShoppingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
