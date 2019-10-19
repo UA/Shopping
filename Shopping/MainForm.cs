@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Threading;
 
 namespace Shopping
 {
@@ -98,6 +99,7 @@ namespace Shopping
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Thread.Sleep(2000);
             gridView1.Columns.View.OptionsBehavior.EditorShowMode = EditorShowMode.MouseUp;
             GetEmployees();
         }
