@@ -16,7 +16,7 @@ namespace Shopping
     public partial class CreateOrEditEmployeeForm : DevExpress.XtraEditors.XtraForm
     {
         private static CreateOrEditEmployeeForm instance;
-        private static int id = 0;
+        private int id = 0;
         private CreateOrEditEmployeeForm()
         {
             InitializeComponent();
@@ -144,10 +144,18 @@ namespace Shopping
             {
                 createOrEdit.Text = "Edit";
                 instance.GetEmployee();
-            }else
+                delete.Visible = true;
+            }
+            else
+            {
                 createOrEdit.Text = "Create";
+                delete.Visible = false;
+                ClearFields();
+            }
+                
 
         }
+
 
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -176,6 +184,22 @@ namespace Shopping
             MainForm mainForm = new MainForm();
             mainForm.Show();
             Hide();
+        }
+
+
+        private void ClearFields()
+        {
+            employeeId.Text = "";
+            firstName.Text = "";
+            lastName.Text = "";
+            title.Text = "";
+            titleOfCoursety.Text = "";
+            address.Text = "";
+            city.Text = "";
+            region.Text = "";
+            postalCode.Text = "";
+            country.Text = "";
+            homePhone.Text = "";
         }
     }
 }

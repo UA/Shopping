@@ -35,7 +35,38 @@ namespace Shopping
             {
                 GetProducts();
             }
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Thread.Sleep(2000);
+            gridView1.Columns.View.OptionsBehavior.EditorShowMode = EditorShowMode.MouseUp;
+            GetEmployees();
+        }
 
+        //Grid view e click oldugunda edit ve delete islemlerini yapabilirsiniz
+        private void GridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            //tiklanan row un employee id si
+            int employeeId = Convert.ToInt32((sender as GridView).GetFocusedRowCellValue("EmployeeID"));
+
+            CreateOrEditEmployeeForm editEmployeeForm = CreateOrEditEmployeeForm.GetInstance();
+
+            editEmployeeForm.Show();
+            this.Hide();
+            editEmployeeForm.SetEmployeeId(employeeId);
+        }
+
+        //Yeni bir employee eklemek icin
+        private void NewEmployee_Click(object sender, EventArgs e)
+        {
+            if ((DataListType)navigationFrame.SelectedPageIndex == DataListType.Employees)
+            {
+                CreateOrEditEmployeeForm editEmployeeForm = CreateOrEditEmployeeForm.GetInstance();
+                editEmployeeForm.Show();
+                this.Hide();
+                editEmployeeForm.SetEmployeeId(0);
+
+            }
         }
 
         private void GetProducts()
@@ -64,14 +95,15 @@ namespace Shopping
                 var query = from o in db.Orders
                             join c in db.Customers on o.CustomerID equals c.CustomerID
                             join e in db.Employees on o.EmployeeID equals e.EmployeeID
-                            select new {
-                                 CustomerId = c.CustomerID,
-                                 CompanyName = c.CompanyName,
-                                 FirstName = e.FirstName,
-                                 LastName = e.LastName,
-                                 ShipName = o.ShipName,
-                                 ShipCountry = o.ShipCountry,
-                                 Freight = o.Freight
+                            select new
+                            {
+                                CustomerId = c.CustomerID,
+                                CompanyName = c.CompanyName,
+                                FirstName = e.FirstName,
+                                LastName = e.LastName,
+                                ShipName = o.ShipName,
+                                ShipCountry = o.ShipCountry,
+                                Freight = o.Freight
                             };
                 gcOrders.DataSource = query.ToList();
             }
@@ -83,7 +115,8 @@ namespace Shopping
             {
                 var query = from e in db.Employees
                             orderby e.FirstName
-                            select new {
+                            select new
+                            {
                                 Photo = e.Photo,
                                 EmployeeID = e.EmployeeID,
                                 FirstName = e.FirstName,
@@ -94,35 +127,6 @@ namespace Shopping
                             };
 
                 gcEmployees.DataSource = query.ToList();
-            }
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            Thread.Sleep(2000);
-            gridView1.Columns.View.OptionsBehavior.EditorShowMode = EditorShowMode.MouseUp;
-            GetEmployees();
-        }
-
-        private void GridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            int employeeId = Convert.ToInt32((sender as GridView).GetFocusedRowCellValue("EmployeeID"));
-
-            CreateOrEditEmployeeForm editEmployeeForm = CreateOrEditEmployeeForm.GetInstance();
-
-            editEmployeeForm.Show();
-            this.Hide();
-            editEmployeeForm.SetEmployeeId(employeeId);
-        }
-
-        private void NewEmployee_Click(object sender, EventArgs e)
-        {
-            if ((DataListType)navigationFrame.SelectedPageIndex == DataListType.Employees)
-            {
-                CreateOrEditEmployeeForm editEmployeeForm = CreateOrEditEmployeeForm.GetInstance();
-                editEmployeeForm.Show();
-                this.Hide();
-                editEmployeeForm.SetEmployeeId(0);
             }
         }
 
