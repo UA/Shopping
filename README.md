@@ -12,4 +12,5 @@ To run this sample, you need a tool that can run Transact-SQL scripts. You can r
 1. Open SSMS.
 2. Connect to the target SQL Server.
 3. Open the script in a new query window.
-4. Run the script.
+4. Run the script 
+   instpubs.sql
