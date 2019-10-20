@@ -35,11 +35,15 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.employeesTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem4 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem5 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.customersTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -52,11 +56,17 @@
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.gcSummary1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBarGroup1 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarGroup3 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarGroup4 = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.gcSummary2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
             this.employeesNavigationPage.SuspendLayout();
@@ -68,6 +78,12 @@
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            this.navigationPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSummary1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            this.navigationPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSummary2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -90,7 +106,7 @@
             this.tileBar.ItemPadding = new System.Windows.Forms.Padding(8, 6, 12, 6);
             this.tileBar.Location = new System.Drawing.Point(0, 0);
             this.tileBar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.tileBar.MaxId = 8;
+            this.tileBar.MaxId = 10;
             this.tileBar.MaximumSize = new System.Drawing.Size(0, 135);
             this.tileBar.MinimumSize = new System.Drawing.Size(117, 135);
             this.tileBar.Name = "tileBar";
@@ -111,6 +127,8 @@
             this.tileBarGroupTables.Items.Add(this.employeesTileBarItem);
             this.tileBarGroupTables.Items.Add(this.tileBarItem2);
             this.tileBarGroupTables.Items.Add(this.tileBarItem3);
+            this.tileBarGroupTables.Items.Add(this.tileBarItem4);
+            this.tileBarGroupTables.Items.Add(this.tileBarItem5);
             this.tileBarGroupTables.Name = "tileBarGroupTables";
             this.tileBarGroupTables.Text = "TABLES";
             // 
@@ -146,12 +164,34 @@
             this.tileBarItem3.Id = 7;
             this.tileBarItem3.Name = "tileBarItem3";
             // 
+            // tileBarItem4
+            // 
+            this.tileBarItem4.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.tileBarItem4.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement4.ImageOptions.ImageUri.Uri = "Cube;Size32x32;GrayScaled";
+            tileItemElement4.Text = "Summary 1";
+            this.tileBarItem4.Elements.Add(tileItemElement4);
+            this.tileBarItem4.Id = 8;
+            this.tileBarItem4.Name = "tileBarItem4";
+            // 
+            // tileBarItem5
+            // 
+            this.tileBarItem5.AppearanceItem.Normal.BackColor = System.Drawing.Color.Purple;
+            this.tileBarItem5.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem5.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement5.ImageOptions.ImageUri.Uri = "Cube;Size32x32;GrayScaled";
+            tileItemElement5.Text = "Summary 2";
+            this.tileBarItem5.Elements.Add(tileItemElement5);
+            this.tileBarItem5.Id = 9;
+            this.tileBarItem5.Name = "tileBarItem5";
+            // 
             // customersTileBarItem
             // 
             this.customersTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement4.ImageOptions.ImageUri.Uri = "Cube;Size32x32;GrayScaled";
-            tileItemElement4.Text = "Customers";
-            this.customersTileBarItem.Elements.Add(tileItemElement4);
+            tileItemElement6.ImageOptions.ImageUri.Uri = "Cube;Size32x32;GrayScaled";
+            tileItemElement6.Text = "Customers";
+            this.customersTileBarItem.Elements.Add(tileItemElement6);
             this.customersTileBarItem.Id = 2;
             this.customersTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.customersTileBarItem.Name = "customersTileBarItem";
@@ -161,6 +201,8 @@
             this.navigationFrame.Controls.Add(this.employeesNavigationPage);
             this.navigationFrame.Controls.Add(this.customersNavigationPage);
             this.navigationFrame.Controls.Add(this.navigationPage1);
+            this.navigationFrame.Controls.Add(this.navigationPage2);
+            this.navigationFrame.Controls.Add(this.navigationPage3);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(0, 135);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -168,7 +210,9 @@
             this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.employeesNavigationPage,
             this.customersNavigationPage,
-            this.navigationPage1});
+            this.navigationPage1,
+            this.navigationPage2,
+            this.navigationPage3});
             this.navigationFrame.SelectedPage = this.employeesNavigationPage;
             this.navigationFrame.Size = new System.Drawing.Size(1100, 580);
             this.navigationFrame.TabIndex = 0;
@@ -176,7 +220,6 @@
             // 
             // employeesNavigationPage
             // 
-            this.employeesNavigationPage.Caption = "employeesNavigationPage";
             this.employeesNavigationPage.Controls.Add(this.newEmployee);
             this.employeesNavigationPage.Controls.Add(this.gcEmployees);
             this.employeesNavigationPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -256,6 +299,34 @@
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsView.RowAutoHeight = true;
             // 
+            // navigationPage2
+            // 
+            this.navigationPage2.Caption = "navigationPage2";
+            this.navigationPage2.Controls.Add(this.gcSummary1);
+            this.navigationPage2.Name = "navigationPage2";
+            this.navigationPage2.Size = new System.Drawing.Size(1100, 580);
+            // 
+            // gcSummary1
+            // 
+            this.gcSummary1.Location = new System.Drawing.Point(0, 0);
+            this.gcSummary1.MainView = this.gridView4;
+            this.gcSummary1.Name = "gcSummary1";
+            this.gcSummary1.Size = new System.Drawing.Size(1100, 500);
+            this.gcSummary1.TabIndex = 0;
+            this.gcSummary1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+            // 
+            // gridView4
+            // 
+            this.gridView4.GridControl = this.gcSummary1;
+            this.gridView4.Name = "gridView4";
+            // 
+            // navigationPage3
+            // 
+            this.navigationPage3.Controls.Add(this.gcSummary2);
+            this.navigationPage3.Name = "navigationPage3";
+            this.navigationPage3.Size = new System.Drawing.Size(1100, 580);
+            // 
             // tileBarGroup1
             // 
             this.tileBarGroup1.Name = "tileBarGroup1";
@@ -273,14 +344,29 @@
             this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(196)))));
             this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.ImageOptions.ImageUri.Uri = "Cube;Size32x32;GrayScaled";
-            tileItemElement5.Text = "Employees";
-            this.tileBarItem1.Elements.Add(tileItemElement5);
+            tileItemElement7.ImageOptions.ImageUri.Uri = "Cube;Size32x32;GrayScaled";
+            tileItemElement7.Text = "Employees";
+            this.tileBarItem1.Elements.Add(tileItemElement7);
             this.tileBarItem1.Name = "tileBarItem1";
             // 
             // tileBarGroup4
             // 
             this.tileBarGroup4.Name = "tileBarGroup4";
+            // 
+            // gcSummary2
+            // 
+            this.gcSummary2.Location = new System.Drawing.Point(0, 0);
+            this.gcSummary2.MainView = this.gridView5;
+            this.gcSummary2.Name = "gcSummary2";
+            this.gcSummary2.Size = new System.Drawing.Size(1100, 500);
+            this.gcSummary2.TabIndex = 0;
+            this.gcSummary2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView5});
+            // 
+            // gridView5
+            // 
+            this.gridView5.GridControl = this.gcSummary2;
+            this.gridView5.Name = "gridView5";
             // 
             // MainForm
             // 
@@ -307,6 +393,12 @@
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            this.navigationPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcSummary1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            this.navigationPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcSummary2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,5 +427,13 @@
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem4;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem5;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage3;
+        private DevExpress.XtraGrid.GridControl gcSummary1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.GridControl gcSummary2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
     }
 }

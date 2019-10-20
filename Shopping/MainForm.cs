@@ -35,7 +35,17 @@ namespace Shopping
             {
                 GetProducts();
             }
+            else if ((DataListType)navigationFrame.SelectedPageIndex == DataListType.Summary1)
+            {
+                GetSummary1();
+            }
+            else if ((DataListType)navigationFrame.SelectedPageIndex == DataListType.Summary2)
+            {
+                GetSummary2();
+            }
         }
+
+     
         private void MainForm_Load(object sender, EventArgs e)
         {
             Thread.Sleep(2000);
@@ -130,11 +140,92 @@ namespace Shopping
             }
         }
 
+        private void GetSummary1()
+        {
+            //Her bir Employee ID tarafindan isleme tabii tutulan 
+            //order’lari gruplayarak toplam order quantity,
+            //averaj unit price ve average discount miktari hesaplanacak.
+            //“Employee ID”, “Toplam SIparis Miktari”, “Averaj Birim Fiyat”, 
+            //“Average Iskonto Miktari”
+            /* select EmployeeID, 
+                        COUNT(A.OrderID) as OrderID, 
+                        SUM(A.Quantity) as TotalQuantity, 
+                        AVG(A.UnitPrice) as AverageUnitPrice,
+                        AVG(A.Discount) as AverageDiscount
+                        from 
+                        [Order Details] as A, 
+                        Orders as B
+                        where A.OrderID = B.OrderID
+                        group by B.EmployeeID, B.OrderID
+                        order by EmployeeID*/
+            using (var db = new ShoppingContext())
+            {
+                var query = from orderDetails in db.Order_Details
+                            join orders in db.Orders
+                            on orderDetails.OrderID equals orders.OrderID
+                            group new { orderDetails, orders } by new { orders.OrderID, orders.EmployeeID } into grouping
+                            orderby grouping.Key.EmployeeID
+                            select new
+                            {
+                                EmployeeID = grouping.Key.EmployeeID,
+                                ToplamSiparisMiktari = grouping.Sum(x => x.orderDetails.Quantity),
+                                AverajBirimFiyat = grouping.Average(x => x.orderDetails.UnitPrice),
+                                AverageIskontoMiktari = grouping.Average(x => x.orderDetails.Discount)
+                            };
+                gcSummary1.DataSource = query.ToList();
+
+            }
+        }
+
+        private void GetSummary2()
+        {
+            //Her bir Customer ID tarafindan siparis edilen order’lari 
+            //categori’leri bazinda gruplayarak toplam order quantity, 
+            //averaj unit price ve average discount miktari hesaplanacak.
+            //“Customer ID”, “Category ID”, “Toplam SIparis Miktari”, 
+            //“Averaj Birim Fiyat”, “Average Iskonto Miktari”
+            /*select CustomerID, C.CategoryID,
+						 COUNT(A.OrderID) as OrderID, 
+						 SUM(A.Quantity) as TotalQuantity, 
+						 AVG(A.UnitPrice) as AverageUnitPrice,
+						 AVG(A.Discount) as AverageDiscount
+                         from
+                         [Order Details] as A, 
+						 Orders as B,
+						 Products as P,
+						 Categories as C
+                         where A.OrderID = B.OrderID and P.ProductID = A.ProductID and P.CategoryID = C.CategoryID
+                         group by CustomerID, C.CategoryID*/
+
+
+            using (var db = new ShoppingContext())
+            {
+                var query = from orderDetails in db.Order_Details
+                            join orders in db.Orders on orderDetails.OrderID equals orders.OrderID
+                            join products in db.Products on orderDetails.ProductID equals products.ProductID
+                            join categories in db.Categories on products.ProductID equals categories.CategoryID
+                            group new { orderDetails, categories, orders } by new { categories.CategoryID, orders.CustomerID } into grouping
+                            select new
+                            {
+                                CustomerID = grouping.Key.CustomerID,
+                                CategoryID = grouping.Key.CategoryID,
+                                ToplamSiparisMiktari = grouping.Sum(x => x.orderDetails.Quantity),
+                                AverajBirimFiyat = grouping.Average(x => x.orderDetails.UnitPrice),
+                                AverageIskontoMiktari = grouping.Average(x => x.orderDetails.Discount)
+                            };
+                gcSummary2.DataSource = query.ToList();
+
+            }
+        }
+
+
         private enum DataListType
         {
             Employees,
             Orders,
-            Products
+            Products,
+            Summary1,
+            Summary2
         }
     }
 }
